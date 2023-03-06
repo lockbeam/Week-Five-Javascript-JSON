@@ -58,9 +58,31 @@ console.log(`If I had ${eurosIHave} euros I would have ${audRounded} AUD`)
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
-ratesArray = rates
-let highestRate = max(ratesArray)
-console.log(highestRate)
+let countryName = Object.keys(rates)
+let countryRates = Object.values(rates)
+
+console.log(countryRates)
+
+let i = countryRates.indexOf(Math.max(...countryRates))
+console.log(i) //2
+countryWithHighestRate = countryName[i]
+highestRate = countryRates[i]
+
+console.log(`The currency with the highest exchange rate is ${countryWithHighestRate} with a rate of ${highestRate} to one Euro`)
+
+//I CAN'T BELIEVE I DID THIS - SO HAPPY WITH MYSELF : )
+
+// BRAINSTORMING: pull data seperately and then either identify location of max in values and then print corresponding figure in keys?
+
+//HAD SOME OF MY OWN IDEAS THAT DIDN'T WORK AND SOME INTERNET SEARCHES AS WELL - GRAVEYARD
+
+// console.log(
+//   Math.max(...Object.keys(rates))
+// )
+
+//ratesArray = rates
+//let highestRate = max(ratesArray)
+//console.log(highestRate)
 
 // let countryAndRates = []
 // let ratesArray = rates
