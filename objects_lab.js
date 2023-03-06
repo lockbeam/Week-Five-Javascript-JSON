@@ -103,11 +103,38 @@ let cats_and_owners = [
 ]
 
 // TODO print Gary Oldman's cat's name
+
+allAboutGary = cats_and_owners[1]
+console.log(allAboutGary) //{ name: 'Gary Oldman', cat: 'Soymilk' }
+soymilk = allAboutGary.cat
+console.log(soymilk) // Soymilk
+
 // TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
+
+cats_and_owners.push({name: "Taylor Swift", cat: "Meredith"}) //brackets important here!!
+console.log(cats_and_owners)
+
 // TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
 //   Each line should have a message like "Snoop Dogg's cat is called Miles Davis"
 
+// !!!! forEach() is a method on JavaScript arrays, not objects !!!!
 
+descriptions = []
+
+cats_and_owners.forEach( function( nameandcat) {
+    console.log(`${nameandcat.name}'s cat is called ${nameandcat.cat}` )
+})
+
+// OMG I MADE THIS SO MUCH HARDER THAN IT NEEDED TO BE
+// ANOTHER GRAVEYARD BELOW
+
+// Object.keys(cats_and_owners).forEach(function(key){
+//   console.log(key + ' - ' + cats_and_owners[key])
+// })
+
+// let descriptionsString = descriptions.join("'s cat is called ")
+// console.log(descriptions)
+// console.log(descriptionsString)
 
 /* d. Use the following JSON object, describing the Nobel Prize winners in 2017.
 Source http://api.nobelprize.org/v1/prize.json?year=2017
