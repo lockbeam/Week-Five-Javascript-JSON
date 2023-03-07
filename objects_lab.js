@@ -58,15 +58,15 @@ console.log(`If I had ${eurosIHave} euros I would have ${audRounded} AUD`)
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
-let countryName = Object.keys(rates)
+let countryName = Object.keys(rates) // seperating keys from values but position should remain the same
 let countryRates = Object.values(rates)
 
-console.log(countryRates)
+console.log(countryRates) // worked : )
 
-let i = countryRates.indexOf(Math.max(...countryRates))
-console.log(i) //2
-countryWithHighestRate = countryName[i]
-highestRate = countryRates[i]
+let i = countryRates.indexOf(Math.max(...countryRates)) // found this online after a lot of trial and error, gave me max value
+console.log(i) //position 2 is where the highest rate is
+countryWithHighestRate = countryName[i] // finding matching pair in the keys
+highestRate = countryRates[i] // setting value for template string
 
 console.log(`The currency with the highest exchange rate is ${countryWithHighestRate} with a rate of ${highestRate} to one Euro`)
 
@@ -140,12 +140,7 @@ cats_and_owners.forEach( function( nameandcat) {
 Source http://api.nobelprize.org/v1/prize.json?year=2017
 * */
 
-// TODO print the full name of the Literature Nobel laureate.
-// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
-// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
-// TODO write code to print the total number of prize categories
-// TODO write code to count the total number of laureates from 2017. 
-//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
+
 
 
 let nobel_prize_winners_2017 = {
@@ -272,3 +267,49 @@ let nobel_prize_winners_2017 = {
     }
   ]
 }
+
+// TODO print the full name of the Literature Nobel laureate.
+
+let prizes = nobel_prize_winners_2017.prizes
+let literature = prizes[3]
+let arrayLitLaureateInfo = literature.laureates
+let litLaureateInfo = arrayLitLaureateInfo[0]
+let litFirstName = litLaureateInfo.firstname
+let litSurname = litLaureateInfo.surname
+
+// console.log(litLaureateInfo)
+// console.log(litFirstName)
+// console.log(litSurname)
+
+console.log(litFirstName + ' ' + litSurname)
+
+// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+
+let physics = prizes[0]
+let arrayPhysicsLaureateInfo = physics.laureates
+
+arrayPhysicsLaureateInfo.forEach( function( idNumber){
+  console.log(idNumber.id)
+})
+
+console.log(arrayPhysicsLaureateInfo)
+
+// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+
+prizes.forEach( function( prizeCategory) {
+  console.log(prizeCategory.category)
+})
+
+// TODO write code to print the total number of prize categories
+
+allThePrizes = []
+
+prizes.forEach( function( prizeCategory) {
+  allThePrizes.push(prizeCategory.category)
+})
+
+numberOfPrizes = allThePrizes.length
+console.log('There are a total of ' +numberOfPrizes + ' prize categories')
+
+// TODO write code to count the total number of laureates from 2017. 
+//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
